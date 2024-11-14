@@ -43,6 +43,11 @@
             color: #888;
             margin-top: 5px;
         }
+        .post-image {
+            margin-top: 10px;
+            max-width: 100%;
+            border-radius: 5px;
+        }
         .add-button {
             display: inline-block;
             padding: 10px;
@@ -67,6 +72,9 @@
             <div class="post-title">{{ post.title }}</div>
             <div class="post-date">{{ post.created_date|date:"Y년 m월 d일 H:i" }}</div>
             <p>{{ post.text }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+            {% endif %}
         </div>
         {% endfor %}
     </div>

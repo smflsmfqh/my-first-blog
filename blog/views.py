@@ -106,3 +106,7 @@ def upload_image(request):
         return JsonResponse({'success': True, 'url': image_url})
     else:
         return JsonResponse({'success': False, 'error': 'No image provided'}, status=400)
+    
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
